@@ -1,0 +1,227 @@
+﻿@model BlogMvcApp.Models.Blog
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+@{
+    Layout = null;
+}
+
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <!-- Fontawesome -->
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+
+
+    <link rel="stylesheet" type="text/css" href="~/Content/styles.css">
+
+    <script src="https://cdn.ckeditor.com/4.9.1/standard/ckeditor.js"></script>
+
+    <title>Erdogan Yildiz</title>
+    <link rel="icon" href="~/Content/img/website-logo.png" type="image/gif" sizes="30x30">
+</head>
+
+
+
+@ViewData["message1"]
+@ViewData["message3"]
+@ViewData["message4"]
+
+
+
+<body>
+
+
+
+    <div class="container-fluid" id="header">
+
+        <nav class="navbar navbar-expand-md navbar-light">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!--<a class="navbar-brand" href="#"><img src="../Content/img/logo.png"></a>-->
+
+
+                <a class="navbar-brand" href="/Blog/Details/@Model.Id" style="color:green;   font-family:Montserrat,-apple-system,BlinkMacSystemFont,Arial,sans-serif; font-size: 1.75em; font-weight:700;" OnMouseOver="this.style.color =
+ '#b7b4b4'" onMouseOut="this.style.color = 'green'">BackToBlog</a>
+                <a class="navbar-brand" href="/Home/Index" style="margin-left:15px; font-family:Montserrat,-apple-system,BlinkMacSystemFont,Arial,sans-serif; font-size: 1.75em; font-weight:700;" OnMouseOver="this.style.color =
+ '#b7b4b4'" onMouseOut="this.style.color = 'black'">Home</a>
+
+
+
+                <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo03">
+
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Home/Index#about" style="font-family:Montserrat,-apple-system,BlinkMacSystemFont,Arial,sans-serif; font-size: 1rem; font-weight:700; padding-left:1.5rem; padding-right:1.5rem;" onmouseover="this.style.backgroundColor='#CCCCCC';" onmouseout="this.style.backgroundColor='#FCFAFA';">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Home/Index#portfolio" style="font-family:Montserrat,-apple-system,BlinkMacSystemFont,Arial,sans-serif; font-size: 1rem; font-weight:700; padding-left:1.5rem; padding-right:1.5rem;" onmouseover="this.style.backgroundColor='#CCCCCC';" onmouseout="this.style.backgroundColor='#FCFAFA';">Projects</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Home/Index#contact" style="font-family:Montserrat,-apple-system,BlinkMacSystemFont,Arial,sans-serif; font-size: 1rem; font-weight:700; padding-left:1.5rem; padding-right:1.5rem;" onmouseover="this.style.backgroundColor='#CCCCCC';" onmouseout="this.style.backgroundColor='#FCFAFA';">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+
+
+        @using (Html.BeginForm("Edit", "Blog", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+
+        <div class="form-horizontal">
+
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.Id)
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Baslik, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Baslik, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Baslik, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.BaslikEn, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.BaslikEn, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.BaslikEn, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Aciklama, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Aciklama, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Aciklama, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.AciklamaEn, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextAreaFor(model => model.AciklamaEn, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.AciklamaEn, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Resim, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+
+                    <input type="file" name="BlogResim" id="BlogResim" accept=".jpg,.jpeg,.gif" />
+                    <br />
+                    <p>Yeni bir resim yüklemezseniz, blog için eski resim kullanılmaya devam edecek.</p>
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.İcerik, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextAreaFor(model => model.İcerik, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.İcerik, "", new { @class = "text-danger" })
+                    <script>
+                        CKEDITOR.replace('İcerik');
+                    </script>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.İcerikEn, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextAreaFor(model => model.İcerikEn, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.İcerikEn, "", new { @class = "text-danger" })
+                    <script>
+                        CKEDITOR.replace('İcerikEn');
+                    </script>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.OnayAlani, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.OnayAlani)
+                        @Html.ValidationMessageFor(model => model.OnayAlani, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CategoryId, "CategoryId", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("CategoryId", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-success" />
+                </div>
+            </div>
+        </div>
+
+
+        }
+
+
+
+
+    </div>
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

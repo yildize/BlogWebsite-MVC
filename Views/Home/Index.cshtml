@@ -1,0 +1,558 @@
+﻿@model BlogMvcApp.Models.Email
+@{
+    ViewBag.Title = "Index";
+}
+
+@{
+    Layout = null;
+    // HOME
+}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Erdogan Yildiz</title>
+    <!-- Bootstrap core CSS -->
+    <link href="../../Content/theme/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom fonts for this template -->
+    <link href="../../Content/theme/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="../../Content/theme/css/grayscale.min.css" rel="stylesheet">
+    <!-- Main Stylesheet File -->
+    <link href="../../Content/theme/css2/style.css" rel="stylesheet">
+    <!-- Home Page Tanıtım css-->
+    <link href="~/Content/BlogStyles/homestyle.css" rel="stylesheet">
+    <!-- Theme CSS -->
+    <link href="../../Content/theme/css3/freelancer.min.css" rel="stylesheet">
+
+    <link rel="icon" href="~/Content/img/website-logo.png" type="image/gif" sizes="30x30">
+
+
+</head>
+<body id="page-top">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="/Blog/Index" style="color:green;   font-family:Montserrat,-apple-system,BlinkMacSystemFont,Arial,sans-serif; font-size: 1.75em; font-weight:800;" OnMouseOver="this.style.color =
+ '#6b6d6b'" onMouseOut="this.style.color = 'green'">Blog</a>
+            <a class="navbar-brand js-scroll-trigger" href="#page-top" onMouseOver="this.style.color='#000'" onMouseOut="this.style.color='#fff'" style="margin-left:15px;">Home</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#portfolio">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+                    </li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" style="color:red; font-size:1rem;" href="/Account/Logout">LogouT</a>
+                        </li>
+                    }
+
+                    <li style="margin-left:2em;">  
+                        <a href="/Home/Tr"><img src="~/Content/img/tr2.png" alt="Turkish"></a>  
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Header -->
+    <div id="home" class="intro route bg-image">
+        <header class="masthead">
+
+            <div class="mx-auto text-center">
+
+
+                <div class="overlay-itro"></div>
+                <div class="intro-content display-table">
+                    <div class="table-cell">
+                        <div class="container">
+                            <!--<p class="display-6 color-d">Hello, world!</p>-->
+                            <h1 class="intro-title mb-4">Hey it's Erdogan</h1>
+                            <p class="intro-subtitle"><span class="text-slider-items"> "A Straight Arrow", "A True Friend","A Trouper","An Inventor", "A Dreamer", "A Great Engineer", "An Avant Gardist", "An Achiever", "A Perfectionist", I am just kidding :), I hate bragging,  I am just a regular guy..., Some parts might be true tho ;)  </span><strong class="text-slider"></strong></p>
+                            <!-- <p class="intro-subtitle"><span class="text-slider-items">In this section, People often put some personal characteristics,like:,"A Straight Arrow", "A True Friend", "An Inventor", "A Dreamer", "A Great Engineer", "An Avant Gardist", "An Achiever", "A Perfectionist", and so on..., But I don't want to praise myself,After all I am just a regular guy..., Some parts might be describing me tho ;)  </span><strong class="text-slider"></strong></p> -->
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+    </div>
+    </header>
+    </div>
+
+    <!-- About Section -->
+    <section class="page-section bg-primary text-white mb-0" id="about">
+        <div class="container" style="text-align: center;">
+            <!-- About Section Heading -->
+            <h2 class="page-section-heading text-center text-uppercase text-white">About</h2>
+            <!-- Icon Divider -->
+            <div class="divider-custom divider-light">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <!-- About Section Content -->
+            <div class="row" id="tanitim" style="text-align: justify;">
+                <div>
+                    <p class="lead">	Hi, I'm Erdogan. I completed my high school education at Antalya Anatolian High School. I graduated from the Department of Mechatronics Engineering at Yildiz Technical University in 2019.</p>
+                    <p class="lead">	The primary reason I created this page was to learn about web development, but I also thought it would be useful in the long run to create a blog page and note down some stuff here, especially when I have such a bad memory.</p>
+                    <p class="lead">	To learn more about me you can check my blog page, <a href="/Blog/List/1#section" style="color:green; font-weight:400;">here is the link</a> to the blogs about me. </p>
+                </div>
+            </div>
+
+            <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                                Click to see more about me...
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapse1" class="panel-collapse collapse in">
+                        <div class="panel-body">
+
+                            <br>
+                            <h2>Education</h2>
+                            <br>
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">School</th>
+                                        <th scope="col"></th>
+                                        <th scope="col">GPA</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Antalya Anatolian Highschool</td>
+                                        <td>  </td>
+                                        <td>90.5/100</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>Yildiz Technical University Department of Mechatronics Engineering </td>
+                                        <td>  </td>
+                                        <td>3.83/4</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td>Budapest University of Technology and Economics (Erasmus+)</td>
+                                        <td>  </td>
+                                        <td>4.91/5</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <br>
+                            <br>
+                            <h2>Internships</h2>
+                            <br>
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Firm</th>
+                                        <th scope="col"></th>
+                                        <th scope="col">Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Orker Asansor ve Yuruyen Merdiven</td>
+                                        <td>  </td>
+                                        <td>Elevator and escalator production company.</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>ASELSAN</td>
+                                        <td>  </td>
+                                        <td>ASELSAN is the largest defense electronics company of Turkey.</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td>Turkish Aircraft Industries Corporation (TAI)</td>
+                                        <td>  </td>
+                                        <td>TAI ranks among the top hundred global players in aerospace and defence arena.</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">4</th>
+                                        <td>Yildiz Technical University Biomechatronics Research Laboratory</td>
+                                        <td>  </td>
+                                        <td>OMRON biomechatronics research and development lab.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <br>
+
+                            <br>
+                            <div class="container">
+                                <h2>Skills</h2>
+                                <br>
+                                <h5>MATLAB</h5>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:90%;">
+
+                                    </div>
+                                </div>
+                                <h5>Simulink</h5>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:85%;">
+
+                                    </div>
+                                </div>
+                                <h5>Java</h5>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:80%;">
+
+                                    </div>
+                                </div>
+
+                                <h5>C#</h5>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:75%;">
+
+                                    </div>
+                                </div>
+                                <h5>Assembly Language</h5>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:70%;">
+
+                                    </div>
+                                </div>
+                                <h5>HTML, CSS , Javascript</h5>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:65%;">
+
+                                    </div>
+                                </div>
+                                <h5>ASP.NET MVC</h5>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:65%;">
+
+                                    </div>
+                                </div>
+                                <h5>Proteus, Multisim</h5>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:70%;">
+
+                                    </div>
+                                </div>
+                                <h5>MPLAB</h5>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:70%;">
+
+                                    </div>
+                                </div>
+                                <h5>Solidworks</h5>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:75%;">
+
+                                    </div>
+                                </div>
+                                <h5>PTC Creo</h5>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:90%;">
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <!-- Portfolio Section -->
+    <section class="page-section portfolio" id="portfolio">
+        <div class="container">
+            <!-- Portfolio Section Heading -->
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Projects</h2>
+            <!-- Icon Divider -->
+            <div class="divider-custom">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <!-- Portfolio Grid Items -->
+            <div class="row">
+                <!-- Portfolio Item 1 -->
+                <div class="col-md-6 col-lg-4">
+
+                    <h5 style="text-align: center">EMG Sensor Circuit</h5>
+                    <br />
+                    <a href="~/Blog/Details/2">
+                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white">
+                                    <i class="fas fa-plus fa-3x"></i>
+                                </div>
+                            </div>
+
+                            <img class="img-fluid" src="~/Content/theme/img3/portfolio/1.jpg" alt="">
+
+                        </div>
+                    </a>
+
+                </div>
+                <!-- Portfolio Item 2 -->
+
+                <div class="col-md-6 col-lg-4">
+                    <h5 style="text-align: center">Password Based Door Lock System (PIC16F877A) </h5>
+                    <a href="~/Blog/Details/3">
+                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal2">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white">
+                                    <i class="fas fa-plus fa-3x"></i>
+                                </div>
+                            </div>
+                            <img class="img-fluid" src="../../Content/theme/img3/portfolio/2.jpg" alt="">
+                        </div>
+                    </a>
+
+                </div>
+                <!-- Portfolio Item 3 -->
+                <div class="col-md-6 col-lg-4">
+                    <h5 style="text-align: center">EMG Controlled Exoskeleton Leg Mechanism</h5>
+                    <a href="~/Blog/Details/3">
+                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal3">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white">
+                                    <i class="fas fa-plus fa-3x"></i>
+                                </div>
+                            </div>
+                            <img class="img-fluid" src="../../Content/theme/img3/portfolio/exoskeleton.jpg" alt="">
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+            <!-- /.row -->
+            <div style="text-align:center; margin-top:30px;">
+                <a style="font-size:1.5em; font-weight:1000;" href="/Blog/List/2#section">
+                    Click for more projects...
+                </a>
+            </div>
+    </section>
+
+
+
+    <!-- Contact Section -->
+    <section class="page-section" id="contact">
+        <div class="container">
+            <!-- Contact Section Heading -->
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Contact</h2>
+            <!-- Icon Divider -->
+            <div class="divider-custom">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <!-- Contact Section Form -->
+
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+                    @ViewData["message1"]
+
+                    @if (TempData.ContainsKey("EmailSent"))
+                    {
+                        int data = int.Parse(TempData["EmailSent"].ToString());
+                        if (data == 1)
+                        {
+                            <p style="font-size:2em; font-weight:800; text-align:center; color:green;">Your email sent successfuly!</p>
+                        }
+                        else
+                        {
+                            <p style="font-size:2em; font-weight:800; text-align:center; color:red;">Email failed!</p>
+                        }
+                    }
+
+
+                    @using (Html.BeginForm("SendEmail", "Home", FormMethod.Post, new { id = "myForm", enctype = "multipart/form-data" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                <label>Name</label>
+                                @Html.EditorFor(model => model.senderName, new { htmlAttributes = new { @class = "form-control", @id = "senderName", placeholder = "Name" } })
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                <label>Email Address</label>
+                                @Html.EditorFor(model => model.senderEmail, new { htmlAttributes = new { @class = "form-control", @id = "senderEmail", placeholder = "Email Address" } })
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                <label>Message</label>
+                                @Html.TextAreaFor(model => model.messageBody, new { @class = "form-control", @id = "messageBody", rows = 3, cols = 60, placeholder = "Message" })
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <br>
+                        <div id="success"></div>
+                        <div class="form-group">
+                            <button type="button" class="btn btn-primary btn-xl" onclick="myFunction()">Send</button>
+                            <p id="demo"></p>
+
+                        </div>
+
+                    }
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black small text-center text-white-50" style="padding-bottom:30px!important; padding-top:20px!important;">
+        @if (!User.Identity.IsAuthenticated)
+        { //USER VIEW
+            <button style="float:left; background-color:#161616; border:0px; font-size:3em;"><a href="/Account/Login">LOGIN</a></button>
+        }
+
+
+            <div class="container">
+
+                <div style="text-align:center; margin-top:20px;" >
+
+                    <!-- footer social links -->
+                    <div style="display:inline-block">
+                        <ul class="nav justify-content-end">
+                            <li class="nav-item" style="margin-right:15px;">
+                                <a class="nav-link active btn btn-light" href="https://www.linkedin.com/in/yildize/"><i class="fab fa-linkedin"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active btn btn-light" href="https://www.facebook.com/edo.yldz"><i class="fab fa-facebook-f"></i></a>
+                            </li>
+                        </ul>
+
+                    </div>
+
+                    
+                </div>
+            </div>
+    </footer>
+    <!-- Bootstrap core JavaScript -->
+    <script src="../../Content/theme/vendor/jquery/jquery.min.js"></script>
+    <script src="../../Content/theme/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Plugin JavaScript -->
+    <script src="../../Content/theme/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Custom scripts for this template -->
+    <script src="../../Content/theme/js/grayscale.min.js"></script>
+
+
+
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+    <div id="preloader"></div>
+    <!-- JavaScript Libraries -->
+    <script src="../../Content/theme/lib2/counterup/jquery.counterup.js"></script>
+    <script src="../../Content/theme/lib2/typed/typed.min.js"></script>
+
+    <!-- Template Main Javascript File -->
+    <script src="../../Content/theme/js2/main.js"></script>
+
+    <!-- FORM VALIDATION -->
+    <script>
+        function myFunction() {
+
+            var readyToGo = true;
+            
+            //Get values
+            var name = document.getElementById("senderName").value;
+            var email = document.getElementById("senderEmail").value;
+            var message = document.getElementById("messageBody").value;
+
+            //Check if they are empty
+            if (name == "") { document.getElementById("senderName").style.backgroundColor = "#ff7878cc"; readyToGo = false; }
+            if (email == "") { document.getElementById("senderEmail").style.backgroundColor = "#ff7878cc"; readyToGo = false;}
+            if (message == "") { document.getElementById("messageBody").style.backgroundColor = "#ff7878cc"; readyToGo = false; }
+
+            //Check email adress
+            if (!isValidEmailAddress(email)) { document.getElementById("senderEmail").style.backgroundColor = "#ff7878cc"; readyToGo = false; }
+
+            if (readyToGo) {
+                $("#myForm").submit();
+            }
+           
+
+        }
+
+        //Email address validation function
+        function isValidEmailAddress(emailAddress) {
+            var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+            return pattern.test(emailAddress);
+        }
+
+
+
+                   
+    </script>
+
+    
+    <script>
+
+        document.getElementById("senderName").addEventListener("input", myFunction1);
+
+        function myFunction1() {
+            document.getElementById("senderName").style.backgroundColor = "white";
+        }
+
+        document.getElementById("senderEmail").addEventListener("input", myFunction2);
+
+        function myFunction2() {
+            document.getElementById("senderEmail").style.backgroundColor = "white";
+        }
+
+        document.getElementById("messageBody").addEventListener("input", myFunction3);
+
+        function myFunction3() {
+            document.getElementById("messageBody").style.backgroundColor = "white";
+        }
+    </script>
+
+</body>
+</html>

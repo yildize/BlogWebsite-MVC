@@ -1,0 +1,59 @@
+﻿@model BlogMvcApp.Models.LoginModel
+@{
+    ViewBag.Title = "Login";
+}
+
+<br />
+<br />
+<br />
+
+
+
+@if (ViewData.ModelState.Any(x => x.Value.Errors.Any()))
+{
+    <div class="alert alert-danger">
+        <a href="#" class="close" data-dismiss="alert">×</a>
+        <h4>Validation Errors</h4>
+        @Html.ValidationSummary()
+    </div>
+}
+
+
+<div style="text-align:center;">
+    <div style="display:inline-block; padding:120px; background-color:#e6e6e6; border-radius:5%; font-size:2em;">
+
+
+        <!--Formumuzu oluşturalım-->
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken();
+
+            <input type="hidden" name="returnUrl" value="@ViewBag.returnUrl" />
+
+            <div class="form-group">
+                <label style="font-family: Montserrat, -apple-system, BlinkMacSystemFont, Arial, sans-serif;">Username</label>
+                @Html.TextBoxFor(i => i.Username, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group">
+                <label style="font-family: Montserrat, -apple-system, BlinkMacSystemFont, Arial, sans-serif;">Password</label>
+                @Html.PasswordFor(i => i.Password, new { @class = "form-control" })
+            </div>
+
+            <button style="font-size:0.75em; margin-top:40px;" class="btn btn-secondary" type="submit">Login</button>
+            <!--Sonuçta bu form ile CONTROLLER'a username, password ve returnUrl gidecek-->
+
+
+
+
+
+
+        }
+
+    </div>
+</div>
+
+
+
+<br />
+<br />

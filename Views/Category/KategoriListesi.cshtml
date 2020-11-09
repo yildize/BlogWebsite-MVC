@@ -1,0 +1,61 @@
+﻿@model IEnumerable<BlogMvcApp.Models.Category>
+
+
+
+<html>
+<head>
+    <style>
+        .ulist {
+            text-align: center;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #ffffff;
+        }
+
+        .list {
+            display: inline-block;
+        }
+
+
+            .list a {
+                display: block;
+                color: black;
+                font-weight:bold;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+
+                .list a:hover:not(.active) {
+                    background-color: #F5F5F5;
+                }
+
+        .active {
+            background-color: #F5F5F5;
+        }
+
+    </style>
+</head>
+
+
+
+<body>
+    <div style="text-align:center;">
+        <p style="text-align:center; font-size:25px; font-weight:bold; font-family:Courier New,Times,serif;">BLOG CATEGORIES</p>
+        <ul class="ulist">
+            <li class="list" id="-1"> <a href=/Blog/List#section>All</a> </li>
+
+            @foreach (var item in Model)
+            {
+                <li class="list" id="@item.Id"> <a href="/Blog/List/@item.Id#section">@item.KategoriAdi</a> </li>
+            }
+
+        </ul>
+    </div>
+</body>
+
+
+
+

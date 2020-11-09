@@ -1,0 +1,556 @@
+﻿@model BlogMvcApp.Models.Email
+@{
+    ViewBag.Title = "Index";
+}
+
+@{
+    Layout = null;
+    // ANASAYFA
+}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Erdogan Yildiz</title>
+    <!-- Bootstrap core CSS -->
+    <link href="../../Content/theme/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom fonts for this template -->
+    <link href="../../Content/theme/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="../../Content/theme/css/grayscale.min.css" rel="stylesheet">
+    <!-- Main Stylesheet File -->
+    <link href="../../Content/theme/css2/style.css" rel="stylesheet">
+    <!-- Home Page Tanıtım css-->
+    <link href="~/Content/BlogStyles/homestyle.css" rel="stylesheet">
+    <!-- Theme CSS -->
+    <link href="../../Content/theme/css3/freelancer.min.css" rel="stylesheet">
+
+    <link rel="icon" href="~/Content/img/website-logo.png" type="image/gif" sizes="30x30">
+
+
+
+</head>
+<body id="page-top">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="/Blog/Tr" style="color:green;   font-family:Montserrat,-apple-system,BlinkMacSystemFont,Arial,sans-serif; font-size: 1.75em; font-weight:800;" OnMouseOver="this.style.color =
+ '#6b6d6b'" onMouseOut="this.style.color = 'green'">Blog</a>
+            <a class="navbar-brand js-scroll-trigger" href="#page-top" onMouseOver="this.style.color='#000'" onMouseOut="this.style.color='#fff'" style="margin-left:15px;">Anasayfa</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#about">Hakkımda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#portfolio">Projeler</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#contact">İletişim</a>
+                    </li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" style="color:red; font-size:1rem;" href="/Account/Logout">Çıkış</a>
+                        </li>
+                    }
+                    <li style="margin-left:2em;">
+                        <a href="/Home/Index"><img src="~/Content/img/en2.png" alt="Turkish"></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Header -->
+    <div id="home" class="intro route bg-image">
+        <header class="masthead">
+
+            <div class="mx-auto text-center">
+
+
+                <div class="overlay-itro"></div>
+                <div class="intro-content display-table">
+                    <div class="table-cell">
+                        <div class="container">
+                            <!--<p class="display-6 color-d">Hello, world!</p>-->
+                            <h1 class="intro-title mb-4">Merhaba ben Erdoğan</h1>                            
+                            <p class="intro-subtitle"><span class="text-slider-items">"Dürüst bir insan", "Gerçek bir arkadaş", "Çalışkan", "Yaratıcı" , "Hayalperest", "Harika bir mühendis", "Yenilikçi" , "Başarılı" , "Mükemmeliyetçi",Şaka şaka :), Kendimi övmeyi hiç sevmem, Sıradan bir insanım işte..., Yine de bazı kısımlar doğru olabilir ;)  </span><strong class="text-slider"></strong></p>
+                            <!--  p class="intro-subtitle"><span class="text-slider-items">Bu kısma şöyle özellikler yazabilirdim:,"Dürüst bir insan", "Gerçek bir arkadaş", "Maceracı", "Yaratıcı" , "Hayalperest", "Harika bir mühendis", "Yenilikçi" , "Başarılı" , "Mükemmeliyetçi", ... , ancak kendimi övmek istemedim , Sonuçta ben de herkes gibi sıradan bir insanım..., Yine de bazı özellikler beni tarif etmiş olabilir ;)  </span><strong class="text-slider"></strong></p> -->
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+    </div>
+    </header>
+    </div>
+
+    <!-- About Section -->
+    <section class="page-section bg-primary text-white mb-0" id="about">
+        <div class="container" style="text-align: center;">
+            <!-- About Section Heading -->
+            <h2 class="page-section-heading text-center text-uppercase text-white">Hakkımda</h2>
+            <!-- Icon Divider -->
+            <div class="divider-custom divider-light">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <!-- About Section Content -->
+            <div class="row" id="tanitim" style="text-align: justify;">
+                <div>
+                    <p class="lead">	Merhaba ben Erdoğan. Lise öğrenimimi Antalya Anadolu Lisesi'nde tamamladım. 2019 yılında Yıldız Teknik Üniversitesi Mekatronik Mühendisliği Bölümü'nden mezun oldum.</p>
+                    <p class="lead">	Bu sayfayı oluşturmamdaki asıl sebep web geliştirme hakkında bilgi edinmekti. Bunun yanında bir blog sayfası oluşturup buraya notlar almamın uzun vadede yararlı olabileceğini düşündüm, özellikle hafızam bu kadar kötüyken.</p>
+                    <p class="lead">	Daha fazla bilgi için bloglarıma göz atabilirsin. "Hakkımda" kategorisindeki bloglara göz atmak için <a href="/Blog/ListTr/1#section" style="color:green; font-weight:400;"> buraya tıkla</a>man yeterli  </p>
+                </div>
+            </div>
+
+            <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                                Hakkımda daha fazlası için tıkla...
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapse1" class="panel-collapse collapse in">
+                        <div class="panel-body">
+
+                            <br>
+                            <h2>Eğitim</h2>
+                            <br>
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Okul</th>
+                                        <th scope="col"></th>
+                                        <th scope="col">Not Ortalaması</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Antalya Anadolu Lisesi</td>
+                                        <td>  </td>
+                                        <td>90.5/100</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>Yıldız Teknik Üniversistesi Mekatronik Mühendisliği </td>
+                                        <td>  </td>
+                                        <td>3.83/4</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td>Budapest University of Technology and Economics (Erasmus+)</td>
+                                        <td>  </td>
+                                        <td>4.91/5</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <br>
+                            <br>
+                            <h2>Stajlar</h2>
+                            <br>
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Firma</th>
+                                        <th scope="col"></th>
+                                        <th scope="col">Açıklama</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Orker Asansor ve Yuruyen Merdiven</td>
+                                        <td>  </td>
+                                        <td>Asansör ve yürüyen merdiven üretimi.</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>ASELSAN</td>
+                                        <td>  </td>
+                                        <td>Türkiyenin en büyük savunma elektroniği kuruluşu.</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td>Türk Havacılık ve Uzay Sanayii (TAI)</td>
+                                        <td>  </td>
+                                        <td>TAI havacılık ve uzay sanayisinde küresel ilk yüz oyuncu arasında yer alır. </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">4</th>
+                                        <td>Yıldız Teknik Üniversitesi Biyomekatronik Araştırma Laboratuvarı</td>
+                                        <td>  </td>
+                                        <td>OMRON biyomekatronik ARGE lab.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <br>
+
+                            <br>
+                            <div class="container">
+                                <h2>Yetenekler</h2>
+                                <br>
+                                <h5>MATLAB</h5>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:90%;">
+
+                                    </div>
+                                </div>
+                                <h5>Simulink</h5>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:85%;">
+
+                                    </div>
+                                </div>
+                                <h5>Java</h5>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:80%;">
+
+                                    </div>
+                                </div>
+
+                                <h5>C#</h5>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:75%;">
+
+                                    </div>
+                                </div>
+                                <h5>Assembly Language</h5>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:70%;">
+
+                                    </div>
+                                </div>
+                                <h5>HTML, CSS , Javascript</h5>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:65%;">
+
+                                    </div>
+                                </div>
+                                <h5>ASP.NET MVC</h5>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:65%;">
+
+                                    </div>
+                                </div>
+                                <h5>Proteus, Multisim</h5>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:70%;">
+
+                                    </div>
+                                </div>
+                                <h5>MPLAB</h5>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:70%;">
+
+                                    </div>
+                                </div>
+                                <h5>Solidworks</h5>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:75%;">
+
+                                    </div>
+                                </div>
+                                <h5>PTC Creo</h5>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:90%;">
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <!-- Portfolio Section -->
+    <section class="page-section portfolio" id="portfolio">
+        <div class="container">
+            <!-- Portfolio Section Heading -->
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Projeler</h2>
+            <!-- Icon Divider -->
+            <div class="divider-custom">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <!-- Portfolio Grid Items -->
+            <div class="row">
+                <!-- Portfolio Item 1 -->
+                <div class="col-md-6 col-lg-4">
+                    <h5 style="text-align: center">EMG Sensörü Devresi</h5>
+                    <a href="~/Blog/DetailsTr/2">
+                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white">
+                                    <i class="fas fa-plus fa-3x"></i>
+                                </div>
+                            </div>
+
+                            <img class="img-fluid" src="~/Content/theme/img3/portfolio/1.jpg" alt="">
+
+                        </div>
+                    </a>
+
+                </div>
+                <!-- Portfolio Item 2 -->
+
+                <div class="col-md-6 col-lg-4">
+                    <h5 style="text-align: center">Şifre Tabanlı Kapı Kilit Sistemi (PIC16F877A) </h5>
+                    <a href="~/Blog/DetailsTr/3">
+                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal2">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white">
+                                    <i class="fas fa-plus fa-3x"></i>
+                                </div>
+                            </div>
+                            <img class="img-fluid" src="../../Content/theme/img3/portfolio/2.jpg" alt="">
+                        </div>
+                    </a>
+
+                </div>
+                <!-- Portfolio Item 3 -->
+                <div class="col-md-6 col-lg-4">
+                    <h5 style="text-align: center">EMG Kontrollü Bacak Dış İskelet Mekanizması</h5>
+                    <a href="~/Blog/DetailsTr/3">
+                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal3">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white">
+                                    <i class="fas fa-plus fa-3x"></i>
+                                </div>
+                            </div>
+                            <img class="img-fluid" src="../../Content/theme/img3/portfolio/exoskeleton.jpg" alt="">
+                        </div>
+                    </a>
+                    <h5 style="text-align: center">EMG Kontrollü Bacak Dış İskelet Mekanizması</h5>
+                </div>
+            </div>
+            <!-- /.row -->
+            <div style="text-align:center; margin-top:30px;">
+                <a style="font-size:1.5em; font-weight:1000;" href="/Blog/ListTr/2#section">
+                   Daha fazla proje için tıkla...
+                </a>
+            </div>
+    </section>
+
+
+
+    <!-- Contact Section -->
+    <section class="page-section" id="contact">
+        <div class="container">
+            <!-- Contact Section Heading -->
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Bana ulaş</h2>
+            <!-- Icon Divider -->
+            <div class="divider-custom">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <!-- Contact Section Form -->
+
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+                    @ViewData["message1"]
+
+                    @if (TempData.ContainsKey("EmailSent"))
+                    {
+                        int data = int.Parse(TempData["EmailSent"].ToString());
+                        if (data == 1)
+                        {
+                            <p style="font-size:2em; font-weight:800; text-align:center; color:green;">Mesajın gönderildi!</p>
+                        }
+                        else
+                        {
+                            <p style="font-size:2em; font-weight:800; text-align:center; color:red;">Mesajın gönderilemedi!</p>
+                        }
+                    }
+
+
+                    @using (Html.BeginForm("SendEmail", "Home", FormMethod.Post, new { id = "myForm", enctype = "multipart/form-data" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                <label>Name</label>
+                                @Html.EditorFor(model => model.senderName, new { htmlAttributes = new { @class = "form-control", @id = "senderName", placeholder = "İsim" } })
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                <label>Email Address</label>
+                                @Html.EditorFor(model => model.senderEmail, new { htmlAttributes = new { @class = "form-control", @id = "senderEmail", placeholder = "Email Adresi" } })
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                <label>Message</label>
+                                @Html.TextAreaFor(model => model.messageBody, new { @class = "form-control", @id = "messageBody", rows = 3, cols = 60, placeholder = "Mesaj" })
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <br>
+                        <div id="success"></div>
+                        <div class="form-group">
+                            <button type="button" class="btn btn-primary btn-xl" onclick="myFunction()">Gönder</button>
+                            <p id="demo"></p>
+
+                        </div>
+
+                    }
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black small text-center text-white-50" style="padding-bottom:30px!important; padding-top:20px!important;">
+        @if (!User.Identity.IsAuthenticated)
+        { //USER VIEW
+            <button style="float:left; background-color:#161616; border:0px; font-size:3em;"><a href="/Account/Login">GİRİŞ</a></button>
+        }
+
+
+        <div class="container">
+
+            <div style="text-align:center; margin-top:20px;">
+
+                <!-- footer social links -->
+                <div style="display:inline-block">
+                    <ul class="nav justify-content-end">
+                        <li class="nav-item" style="margin-right:15px;">
+                            <a class="nav-link active btn btn-light" href="https://www.linkedin.com/in/yildize/"><i class="fab fa-linkedin"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active btn btn-light" href="https://www.facebook.com/edo.yldz"><i class="fab fa-facebook-f"></i></a>
+                        </li>
+                    </ul>
+
+                </div>
+
+
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap core JavaScript -->
+    <script src="../../Content/theme/vendor/jquery/jquery.min.js"></script>
+    <script src="../../Content/theme/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Plugin JavaScript -->
+    <script src="../../Content/theme/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Custom scripts for this template -->
+    <script src="../../Content/theme/js/grayscale.min.js"></script>
+
+
+
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+    <div id="preloader"></div>
+    <!-- JavaScript Libraries -->
+    <script src="../../Content/theme/lib2/counterup/jquery.counterup.js"></script>
+    <script src="../../Content/theme/lib2/typed/typed.min.js"></script>
+
+    <!-- Template Main Javascript File -->
+    <script src="../../Content/theme/js2/main.js"></script>
+
+    <!-- FORM VALIDATION -->
+    <script>
+        function myFunction() {
+
+            var readyToGo = true;
+
+            //Get values
+            var name = document.getElementById("senderName").value;
+            var email = document.getElementById("senderEmail").value;
+            var message = document.getElementById("messageBody").value;
+
+            //Check if they are empty
+            if (name == "") { document.getElementById("senderName").style.backgroundColor = "#ff7878cc"; readyToGo = false; }
+            if (email == "") { document.getElementById("senderEmail").style.backgroundColor = "#ff7878cc"; readyToGo = false;}
+            if (message == "") { document.getElementById("messageBody").style.backgroundColor = "#ff7878cc"; readyToGo = false; }
+
+            //Check email adress
+            if (!isValidEmailAddress(email)) { document.getElementById("senderEmail").style.backgroundColor = "#ff7878cc"; readyToGo = false; }
+
+            if (readyToGo) {
+                $("#myForm").submit();
+            }
+
+
+        }
+
+        //Email address validation function
+        function isValidEmailAddress(emailAddress) {
+            var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+            return pattern.test(emailAddress);
+        }
+
+
+
+
+    </script>
+
+
+    <script>
+
+        document.getElementById("senderName").addEventListener("input", myFunction1);
+
+        function myFunction1() {
+            document.getElementById("senderName").style.backgroundColor = "white";
+        }
+
+        document.getElementById("senderEmail").addEventListener("input", myFunction2);
+
+        function myFunction2() {
+            document.getElementById("senderEmail").style.backgroundColor = "white";
+        }
+
+        document.getElementById("messageBody").addEventListener("input", myFunction3);
+
+        function myFunction3() {
+            document.getElementById("messageBody").style.backgroundColor = "white";
+        }
+    </script>
+
+</body>
+</html>

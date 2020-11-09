@@ -1,0 +1,634 @@
+﻿@model BlogMvcApp.Models.Blog
+
+@{
+    ViewBag.Title = "Details";
+}
+
+@{
+    Layout = null;
+}
+
+
+
+@if (User.Identity.IsAuthenticated)
+{
+
+    <!doctype html>
+    <html lang="en">
+
+
+
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+        <!-- Fontawesome -->
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+
+
+        <link rel="stylesheet" type="text/css" href="~/Content/styles.css">
+
+
+        <title>Erdogan Yildiz</title>
+        <link rel="icon" href="~/Content/img/website-logo.png" type="image/gif" sizes="30x30">
+    </head>
+
+
+
+    <body>
+
+        <div class="container-fluid" id="header">
+
+            <nav class="navbar navbar-expand-md navbar-light">
+                <div class="container">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <!--<a class="navbar-brand" href="#"><img src="../Content/img/logo.png"></a>-->
+                    <a class="navbar-brand" href="/Blog/Tr" style="color:green;   font-family:Montserrat,-apple-system,BlinkMacSystemFont,Arial,sans-serif; font-size: 1.75em; font-weight:700;" OnMouseOver="this.style.color =
+ '#b7b4b4'" onMouseOut="this.style.color = 'green'">Blog</a>
+
+                    <a class="navbar-brand" href="/Home/Tr" style="margin-left:15px; font-family:Montserrat,-apple-system,BlinkMacSystemFont,Arial,sans-serif; font-size: 1.75em; font-weight:700;" OnMouseOver="this.style.color =
+ '#b7b4b4'" onMouseOut="this.style.color = 'black'">Anasayfa</a>
+
+
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo03">
+
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Home/Tr#about" style="font-family:Montserrat,-apple-system,BlinkMacSystemFont,Arial,sans-serif; font-size: 1rem; font-weight:700; padding-left:1.5rem; padding-right:1.5rem;" onmouseover="this.style.backgroundColor='#CCCCCC';" onmouseout="this.style.backgroundColor='#FCFAFA';">Hakkımda</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Home/Tr#portfolio" style="font-family:Montserrat,-apple-system,BlinkMacSystemFont,Arial,sans-serif; font-size: 1rem; font-weight:700; padding-left:1.5rem; padding-right:1.5rem;" onmouseover="this.style.backgroundColor='#CCCCCC';" onmouseout="this.style.backgroundColor='#FCFAFA';">Projeler</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Home/Tr#contact" style="font-family:Montserrat,-apple-system,BlinkMacSystemFont,Arial,sans-serif; font-size: 1rem; font-weight:700; padding-left:1.5rem; padding-right:1.5rem;" onmouseover="this.style.backgroundColor='#CCCCCC';" onmouseout="this.style.backgroundColor='#FCFAFA';">İletişim</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link js-scroll-trigger" href="/Account/Logout" style="color:red!important; font-size:1rem;">Çıkış</a>
+                            </li>
+
+                            <li style="margin-left:2em;">
+                                <a href="/Blog/Details/@Model.Id"><img src="~/Content/img/en2.png" alt="English"></a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+
+
+            @if (TempData["Blog"] != null)
+            {
+                var blog = (BlogMvcApp.Models.Blog)TempData["Blog"];
+
+                <br />
+                <div class="alert alert-success" role="alert" style="text-align:center; overflow:auto; width: 60%; margin:0 auto; ">
+                    Blog <strong> @blog.Baslik</strong> is successfully edited.
+                </div>
+            }
+
+
+
+
+            <!-- Hero Section -->
+            <div class="container" id="hero">
+                <div class="row justify-content-end">
+
+
+                    <div class="col-lg-6 hero-img-container">
+                        <div class="hero-img">
+                            <!-- hero img -->
+                            @{ var sourceText = "../../Content/Upload/" + Model.Resim;}
+                            <img src=@sourceText>
+
+                        </div>
+                    </div>
+
+                    <div class="col-lg-9">
+                        <div class="hero-title">
+                            @if ( String.IsNullOrEmpty(Model.Baslik))
+                            {<h2 style="font-size:2em;"><strong>Bu blog şimdilik yalnızca İngilizce içeriğe sahip. <a href="/Blog/Details/@Model.Id">Dili değiştirmek için tıkla.</a></strong></h2>}
+                            else
+                            {
+                                <h2><strong>@Model.Baslik</strong></h2>
+                            }
+                        </div>
+
+                    </div>
+                    <!-- hero meta -->
+                    <div class="col-lg-6">
+                        <div class="hero-meta">
+
+                            <span class="date mt-2">@Model.EklenmeTarihi.ToString("dd/MM/yyyy")</span>
+                            <div class="tags mt-2">
+
+                                <a href="/Blog/ListTr/@ViewBag.BlogKategorisi[0].Id#section"><span class="badge badge-pill p-2 badge-light">@ViewBag.BlogKategorisi[0].KategoriAdiTr</span></a>
+                            </div>
+
+                            <br />
+
+                            <p>@Html.ActionLink("Düzenle", "Edit", new { id = Model.Id }, new { @class = "btn btn-success btn-lg" }) @Html.ActionLink("Sil", "Delete", new { id = Model.Id }, new { @class = "btn btn-danger btn-lg" })</p>
+                            <!--<div>
+                                <a href="@Url.Action("Index")" class="btn btn-info btn-lg">  Blog Sayfasına Dön </a>
+                            </div> -->
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Content -->
+        <div class="container mt-5" id="content">
+            <div class="row justify-content-center">
+
+                <!-- the content -->
+                <div class="col-xl-12 col-lg-10 col-md-12" style="text-align:justify">
+
+                    <!-- <p style="text-align: justify; text-justify: inter-word" ;>   </p> -->
+                    @(new HtmlString(Model.İcerik))
+
+                    <br>
+                    <hr>
+                    <br>
+
+
+                </div>
+
+
+
+                <div class="container text-center pb-3 mb-5">
+                    <a href="/Blog/ListTr#section" class="btn btn-lg btn-light">Diğer bloglara göz at</a>
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <!-- Related Article Grid -->
+        <!-- Footer section  -->
+
+        <footer class="container-fluid mt-1 p-4">
+            <div class="container ">
+                <div class="row pb-1">
+                    <!-- Footer logo -->
+                    <div class="col-lg-3 col-md-12"></div>
+
+                    <!-- footer links -->
+                    <div class="col-lg-6 col-md-12">
+
+                    </div>
+
+                    <!-- footer social links -->
+                    <div class="col-lg-3 col-md-12">
+                        <ul class="nav justify-content-end">
+                            <li class="nav-item">
+                                <a class="nav-link active btn btn-light" href="https://www.linkedin.com/in/yildize/"><i class="fab fa-linkedin"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active btn btn-light" href="https://www.facebook.com/edo.yldz"><i class="fab fa-facebook-f"></i></a>
+                            </li>
+                        </ul>
+
+                    </div>
+
+                    <hr>
+                </div>
+                <hr>
+
+                <!-- copyright text -->
+                <div class="row pt-2">
+                    <div class="col-lg-12 text-center">
+                        <span style="font-size:10px;">&copy <a href="https://newtodesign.com/">Newtodesign.com</a> All rights received.</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </body>
+</html>
+
+
+}
+else  //USER VIEW
+{
+
+if (Model.OnayAlani == true)
+{
+
+    <!doctype html>
+    <html lang="en">
+
+
+
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+        <!-- Fontawesome -->
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+
+
+        <link rel="stylesheet" type="text/css" href="~/Content/styles.css">
+
+
+        <title>Erdogan Yildiz</title>
+        <link rel="icon" href="~/Content/img/website-logo.png" type="image/gif" sizes="30x30">
+    </head>
+
+
+
+    <body>
+
+        <div class="container-fluid" id="header">
+
+            <nav class="navbar navbar-expand-md navbar-light">
+                <div class="container">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <!--<a class="navbar-brand" href="#"><img src="../Content/img/logo.png"></a>-->
+                    <a class="navbar-brand" href="/Blog/Tr" style="color:green;   font-family:Montserrat,-apple-system,BlinkMacSystemFont,Arial,sans-serif; font-size: 1.75em; font-weight:700;" OnMouseOver="this.style.color =
+ '#b7b4b4'" onMouseOut="this.style.color = 'green'">Blog</a>
+
+                    <a class="navbar-brand" href="/Home/Tr" style="margin-left:15px; font-family:Montserrat,-apple-system,BlinkMacSystemFont,Arial,sans-serif; font-size: 1.75em; font-weight:700;" OnMouseOver="this.style.color =
+ '#b7b4b4'" onMouseOut="this.style.color = 'black'">Anasayfa</a>
+
+
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo03">
+
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Home/Tr#about" style="font-family:Montserrat,-apple-system,BlinkMacSystemFont,Arial,sans-serif; font-size: 1rem; font-weight:700; padding-left:1.5rem; padding-right:1.5rem;" onmouseover="this.style.backgroundColor='#CCCCCC';" onmouseout="this.style.backgroundColor='#FCFAFA';">Hakkımda</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Home/Tr#portfolio" style="font-family:Montserrat,-apple-system,BlinkMacSystemFont,Arial,sans-serif; font-size: 1rem; font-weight:700; padding-left:1.5rem; padding-right:1.5rem;" onmouseover="this.style.backgroundColor='#CCCCCC';" onmouseout="this.style.backgroundColor='#FCFAFA';">Projeler</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Home/Tr#contact" style="font-family:Montserrat,-apple-system,BlinkMacSystemFont,Arial,sans-serif; font-size: 1rem; font-weight:700; padding-left:1.5rem; padding-right:1.5rem;" onmouseover="this.style.backgroundColor='#CCCCCC';" onmouseout="this.style.backgroundColor='#FCFAFA';">İletişim</a>
+                            </li>
+
+                            <li style="margin-left:2em;">
+                                <a href="/Blog/Details/@Model.Id"><img src="~/Content/img/en2.png" alt="English"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+
+            <!-- Hero Section -->
+            <div class="container" id="hero">
+                <div class="row justify-content-end">
+
+
+                    <div class="col-lg-6 hero-img-container">
+                        <div class="hero-img">
+                            <!-- hero img -->
+                            @{ var sourceText = "../../Content/Upload/" + Model.Resim;}
+                            <img src=@sourceText>
+
+                        </div>
+                    </div>
+
+                    <div class="col-lg-9">
+                        <div class="hero-title">
+                            @if (String.IsNullOrEmpty(Model.Baslik))
+                            {<h2 style="font-size:2em;"><strong>Bu blog şimdilik yalnızca İngilizce içeriğe sahip. <a href="/Blog/Details/@Model.Id">Dili değiştirmek için tıkla.</a></strong></h2>}
+                            else
+                            {
+                                <h2><strong>@Model.Baslik</strong></h2>
+                            }
+                        </div>
+
+                    </div>
+                    <!-- hero meta -->
+                    <div class="col-lg-6">
+                        <div class="hero-meta">
+
+                            <span style="font-size:1.5em;" class="date mt-2">@Model.EklenmeTarihi.ToString("dd/MM/yyyy")</span>
+                            <div class="tags mt-2">
+
+                                <a href="/Blog/ListTr/@ViewBag.BlogKategorisi[0].Id#section"><span style="font-size:1.3em;" class="badge badge-pill p-2 badge-light">@ViewBag.BlogKategorisi[0].KategoriAdiTr</span></a>
+                            </div>
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Content -->
+        <div class="container mt-5" id="content">
+            <div class="row justify-content-center">
+
+                <!-- the content -->
+                <div class="col-xl-12 col-lg-10 col-md-12" style="text-align:justify">
+
+                    <!-- <p style="text-align: justify; text-justify: inter-word" ;>   </p> -->
+                    @(new HtmlString(Model.İcerik))
+
+                    <br>
+                    <hr>
+                    <br>
+
+
+                </div>
+
+
+
+                <div class="container text-center pb-3 mb-5">
+                    <a href="/Blog/ListTr#section" class="btn btn-lg btn-light">Diğer bloglara göz at...</a>
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <!-- Related Article Grid -->
+        <!-- Footer section  -->
+
+        <footer class="container-fluid mt-1 p-4">
+            <div class="container ">
+                <div class="row pb-1">
+                    <!-- Footer logo -->
+                    <div class="col-lg-3 col-md-12"></div>
+
+                    <!-- footer links -->
+                    <div class="col-lg-6 col-md-12">
+
+                    </div>
+
+                    <!-- footer social links -->
+                    <div class="col-lg-3 col-md-12">
+                        <ul class="nav justify-content-end">
+                            <li class="nav-item">
+                                <a class="nav-link active btn btn-light" href="https://www.linkedin.com/in/yildize/"><i class="fab fa-linkedin"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active btn btn-light" href="https://www.facebook.com/edo.yldz"><i class="fab fa-facebook-f"></i></a>
+                            </li>
+                        </ul>
+
+                    </div>
+
+                    <hr>
+                </div>
+                <hr>
+
+                <!-- copyright text -->
+                <div class="row pt-2">
+                    <div class="col-lg-12 text-center">
+                        <span style="font-size:10px;">&copy <a href="https://newtodesign.com/">Newtodesign.com</a> All rights received.</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </body>
+</html>
+}
+
+else //Kullanıcı onaysız bir blog id'sini URL olarak girdiyse şu ekranı görsün:
+{
+<!doctype html>
+<html lang="en">
+
+
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <!-- Fontawesome -->
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+
+
+    <link rel="stylesheet" type="text/css" href="~/Content/styles.css">
+
+
+    <title>Erdogan Yildiz</title>
+    <link rel="icon" href="~/Content/img/website-logo.png" type="image/gif" sizes="30x30">
+</head>
+
+<body>
+
+    <div class="container-fluid" id="header">
+
+        <nav class="navbar navbar-expand-md navbar-light">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!--<a class="navbar-brand" href="#"><img src="../Content/img/logo.png"></a>-->
+                <a class="navbar-brand" href="/Blog/Index" style="color:green;   font-family:Montserrat,-apple-system,BlinkMacSystemFont,Arial,sans-serif; font-size: 1.75em; font-weight:700;" OnMouseOver="this.style.color =
+                                                 '#b7b4b4'" onMouseOut="this.style.color = 'green'">Blog</a>
+
+                <a class="navbar-brand" href="/Home/Index" style="margin-left:15px; font-family:Montserrat,-apple-system,BlinkMacSystemFont,Arial,sans-serif; font-size: 1.75em; font-weight:700;" OnMouseOver="this.style.color =
+                                                 '#b7b4b4'" onMouseOut="this.style.color = 'black'">Home</a>
+
+
+                <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo03">
+
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Home/Index#about" style="font-family:Montserrat,-apple-system,BlinkMacSystemFont,Arial,sans-serif; font-size: 1rem; font-weight:700; padding-left:1.5rem; padding-right:1.5rem;" onmouseover="this.style.backgroundColor='#CCCCCC';" onmouseout="this.style.backgroundColor='#FCFAFA';">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Home/Index#portfolio" style="font-family:Montserrat,-apple-system,BlinkMacSystemFont,Arial,sans-serif; font-size: 1rem; font-weight:700; padding-left:1.5rem; padding-right:1.5rem;" onmouseover="this.style.backgroundColor='#CCCCCC';" onmouseout="this.style.backgroundColor='#FCFAFA';">Projects</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Home/Index#contact" style="font-family:Montserrat,-apple-system,BlinkMacSystemFont,Arial,sans-serif; font-size: 1rem; font-weight:700; padding-left:1.5rem; padding-right:1.5rem;" onmouseover="this.style.backgroundColor='#CCCCCC';" onmouseout="this.style.backgroundColor='#FCFAFA';">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+        <!-- Hero Section -->
+        <div class="container" id="hero">
+            <div class="row justify-content-end">
+
+
+                <div class="col-lg-6 hero-img-container">
+                    <div class="hero-img">
+                        <!-- hero img -->
+                        @{ var sourceText = "../../Content/Upload/" + Model.Resim;}
+                        <img src=@sourceText>
+
+                    </div>
+                </div>
+
+                <div class="col-lg-9">
+                    <div class="hero-title">
+
+                        <h2 style="font-size:3em;"><strong>Unauthorized to see this blog</strong></h2>
+                    </div>
+
+                </div>
+                <!-- hero meta -->
+                <div class="col-lg-6">
+                    <div class="hero-meta">
+
+                        <span style="font-size:1.5em;" class="date mt-2">@Model.EklenmeTarihi.ToString("dd/MM/yyyy")</span>
+                        <div class="tags mt-2">
+
+                            <a href="/Blog/List/@ViewBag.BlogKategorisi[0].Id#section"><span style="font-size:1.3em;" class="badge badge-pill p-2 badge-light">@ViewBag.BlogKategorisi[0].KategoriAdi</span></a>
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Content -->
+    <div class="container mt-5" id="content">
+        <div class="row justify-content-center">
+
+            <!-- the content -->
+            <div class="col-xl-12 col-lg-10 col-md-12" style="text-align:justify">
+
+                <!-- <p style="text-align: justify; text-justify: inter-word" ;>   </p> -->
+                <p style="font-size:3em;">You are not allowed to see the content of this blog.</p>
+
+                <br>
+                <hr>
+                <br>
+
+
+            </div>
+
+
+
+            <div class="container text-center pb-3 mb-5">
+                <a href="/Blog/List#section" class="btn btn-lg btn-light">More blogs</a>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <!-- Related Article Grid -->
+    <!-- Footer section  -->
+
+    <footer class="container-fluid mt-1 p-4">
+        <div class="container ">
+            <div class="row pb-1">
+                <!-- Footer logo -->
+                <div class="col-lg-3 col-md-12"></div>
+
+                <!-- footer links -->
+                <div class="col-lg-6 col-md-12">
+
+                </div>
+
+                <!-- footer social links -->
+                <div class="col-lg-3 col-md-12">
+                    <ul class="nav justify-content-end">
+                        <li class="nav-item">
+                            <a class="nav-link active btn btn-light" href="https://www.linkedin.com/in/yildize/"><i class="fab fa-linkedin"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active btn btn-light" href="https://www.facebook.com/edo.yldz"><i class="fab fa-facebook-f"></i></a>
+                        </li>
+                    </ul>
+
+                </div>
+
+                <hr>
+            </div>
+            <hr>
+
+            <!-- copyright text -->
+            <div class="row pt-2">
+                <div class="col-lg-12 text-center">
+                    <span style="font-size:10px;">&copy <a href="https://newtodesign.com/">Newtodesign.com</a> All rights received.</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+
+
+}
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

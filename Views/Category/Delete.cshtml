@@ -1,0 +1,95 @@
+﻿@model BlogMvcApp.Models.Category
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <link rel="icon" href="~/Content/img/website-logo.png" type="image/gif" sizes="30x30">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <!-- Fontawesome -->
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+
+
+    <link rel="stylesheet" type="text/css" href="~/Content/styles.css">
+
+    <title>Erdogan Yildiz</title>
+
+
+
+</head>
+
+
+
+<body>
+    <div class="container-fluid" id="header">
+
+        <body id="page-top">
+            <!-- Navigation -->
+
+
+
+            <nav class="navbar navbar-expand-md navbar-light">
+                <div class="container">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <!--<a class="navbar-brand" href="#"><img src="../Content/img/logo.png"></a>-->
+
+                    <a class="navbar-brand" href="/Blog/Index" style="color:green;   font-family:Montserrat,-apple-system,BlinkMacSystemFont,Arial,sans-serif; font-size: 1.75em; font-weight:700;" OnMouseOver="this.style.color =
+ '#b7b4b4'" onMouseOut="this.style.color = 'green'">Blog</a>
+                    <a class="navbar-brand" href="/Category/Index" style="margin-left:15px; font-family:Montserrat,-apple-system,BlinkMacSystemFont,Arial,sans-serif; font-size: 1.75em; font-weight:700;" OnMouseOver="this.style.color =
+ '#b7b4b4'" onMouseOut="this.style.color = 'black'">Go Back</a>
+
+
+
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo03">
+
+                        <ul class="navbar-nav"></ul>
+                    </div>
+                </div>
+            </nav>
+            <br />
+            <br />
+            <br />
+
+            <div style="text-align:center;">
+                <div style="display: inline-block;">
+
+                    <h3>Are you sure you want to delete  "@Html.DisplayFor(model => model.KategoriAdi)" category?</h3>
+                    <br />
+                    <div>
+
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="form-actions no-color">
+                                <input type="submit" value="Yes, Delete" class="btn btn-success" style="font-size:1.5em;" />
+                            </div>
+                        }
+
+                        <div style="margin-top:15px;">
+                            @Html.ActionLink("No, go back!", "Index", "Category", null, new { @class = "btn btn-danger btn-lg" })
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <br />
+            <br />
+            <br />
+        </body>
+</html>
